@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="name">
+      <input type="text" placeholder="Enter Name" name="" id="" />
+    </div>
+    <br />
+    <div class="password">
+      <input
+        type="password"
+        placeholder="Enter Passoword"
+        name=""
+        id="password"
+      />
+    </div>
+    <br />
+    <div class="show_password">
+      <input
+        type="checkbox"
+        onchange="showPassword(event)"
+        name=""
+        id="showpass"
+      />
+      <span>Show Password</span>
+    </div>
+
+    <script>
+      let pass = document.getElementById('password');
+      function showPassword(e) {
+        if (e.target.checked) pass.type = 'text';
+        else pass.type = 'password';
+      }
+    </script>
+  </body>
+</html>
