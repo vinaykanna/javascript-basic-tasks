@@ -1,2 +1,2 @@
 # javascript-projects
-These are basic javascript project to practice Javascript.
+These are basic javascript projects to practice Javascript.
