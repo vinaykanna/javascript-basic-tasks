@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      .container {
+        width: 50%;
+      }
+
+      ul {
+        display: flex;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+      }
+      ul li {
+        padding: 16px;
+        cursor: pointer;
+      }
+      .tabcontent {
+        display: none;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      .tabcontent p {
+        animation: fadeIn 1s;
+        transition: 1s;
+      }
+      .active {
+        background-color: lightgrey;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li class="tablink" onclick="handleTabs(event, 'first')">First Tab</li>
+        <li class="tablink" onclick="handleTabs(event, 'second')">
+          Second Tab
+        </li>
+        <li class="tablink" onclick="handleTabs(event,'third')">Thrid Tab</li>
+        <li class="tablink" onclick="handleTabs(event, 'fourth')">
+          Fourth Tab
+        </li>
+      </ul>
+      <div class="tabcontent" id="first">
+        <p>
+          hello vinay kumar............... Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit. Ipsa labore id ullam tempora
+          consequuntur! Sequi rerum temporibus repellendus optio obcaecati odit
+          esse, voluptatum quae est nemo, vel mollitia quos sed! hello vinay
+          kumar............... Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Ipsa labore id ullam tempora consequuntur! Sequi
+          rerum temporibus repellendus optio obcaecati odit esse, voluptatum
+          quae est nemo, vel mollitia quos sed!
+        </p>
+      </div>
+      <div class="tabcontent" id="second">
+        <p>
+          hello Sathish kumar............... Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit. Ipsa labore id ullam tempora
+          consequuntur! Sequi rerum temporibus repellendus optio obcaecati odit
+          esse, voluptatum quae est nemo, vel mollitia quos sed! hello Sathish
+          kumar............... Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Ipsa labore id ullam tempora consequuntur! Sequi
+          rerum temporibus repellendus optio obcaecati odit esse, voluptatum
+          quae est nemo, vel mollitia quos sed!
+        </p>
+      </div>
+      <div class="tabcontent" id="third">
+        <p>
+          hello Shiva kumar............... Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit. Ipsa labore id ullam tempora
+          consequuntur! Sequi rerum temporibus repellendus optio obcaecati odit
+          esse, voluptatum quae est nemo, vel mollitia quos sed! hello Shiva
+          kumar............... Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Ipsa labore id ullam tempora consequuntur! Sequi
+          rerum temporibus repellendus optio obcaecati odit esse, voluptatum
+          quae est nemo, vel mollitia quos sed!
+        </p>
+      </div>
+      <div class="tabcontent" id="fourth">
+        <p>
+          hello Prashanth kumar............... Lorem ipsum, dolor sit amet
+          consectetur adipisicing elit. Ipsa labore id ullam tempora
+          consequuntur! Sequi rerum temporibus repellendus optio obcaecati odit
+          esse, voluptatum quae est nemo, vel mollitia quos sed! hello Prashanth
+          kumar............... Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Ipsa labore id ullam tempora consequuntur! Sequi
+          rerum temporibus repellendus optio obcaecati odit esse, voluptatum
+          quae est nemo, vel mollitia quos sed!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function handleTabs(event, tabId) {
+        const tabcontents = document.querySelectorAll('.tabcontent');
+        const tablinks = document.querySelectorAll('.tablink');
+        tabcontents.forEach(item => (item.style.display = 'none'));
+        tablinks.forEach(
+          item => (item.className = item.className.replace(' active', ''))
+        );
+        document.getElementById(tabId).style.display = 'block';
+        event.currentTarget.className += ' active';
+      }
+      document.querySelectorAll('.tablink')[0].click();
+    </script>
+  </body>
+</html>
