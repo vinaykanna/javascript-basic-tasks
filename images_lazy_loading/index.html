@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .img_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      img {
+        width: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img_container">
+      <img class="lazy" loading="lazy" data-src="1.jpeg" alt="" />
+    </div>
+    <div class="img_container">
+      <img class="lazy" loading="lazy" data-src="2.jpeg" alt="" />
+    </div>
+    <div class="img_container">
+      <img class="lazy" loading="lazy" data-src="3.jpeg" alt="" />
+    </div>
+    <div class="img_container">
+      <img class="lazy" loading="lazy" data-src="4.jpeg" alt="" />
+    </div>
+    <div class="img_container">
+      <img class="lazy" loading="lazy" data-src="5.jpeg" alt="" />
+    </div>
+    <div class="img_container">
+      <img class="lazy" loading="lazy" data-src="6.jpeg" alt="" />
+    </div>
+
+    <!-- LAZY LOADING USING INTERSECTION OBSERVER -->
+    <script>
+      const assets = document.querySelectorAll('.lazy');
+      let options = {
+        threshold: 1.0,
+        rootMargin: '0px',
+      };
+      let Imgobserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.src = entry.target.getAttribute('data-src');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+      assets.forEach((node) => {
+        Imgobserver.observe(node);
+      });
+    </script>
+  </body>
+</html>
