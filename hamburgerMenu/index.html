@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamburger Menu</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      .menu_container {
+        width: 0px;
+        height: 100vh;
+        background: black;
+        color: white;
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        padding-top: 60px;
+        z-index: 1;
+        position: fixed;
+        opacity: 0;
+        transition: 0.5s;
+      }
+
+      .menu_container a {
+        color: inherit;
+        display: block;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      .menu_btn {
+        font-size: 30px;
+        cursor: pointer;
+        height: 10px;
+        margin: 20px;
+      }
+      .close_btn {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu_btn">&#9776;</div>
+    <div class="menu_container">
+      <div class="close_btn">&times;</div>
+      <a href="">Home</a>
+      <a href="">About</a>
+      <a href="">Services</a>
+      <a href="">Blog</a>
+      <a href="">Contact</a>
+      <a href="">Works</a>
+    </div>
+
+    <script>
+      const menuBtn = document.querySelector('.menu_btn');
+      const menuContainer = document.querySelector('.menu_container');
+      const closeBtn = document.querySelector('.close_btn');
+
+      menuBtn.addEventListener('click', () => {
+        menuContainer.style.width = '250px';
+        menuContainer.style.opacity = 1;
+      });
+      closeBtn.addEventListener('click', () => {
+        menuContainer.style.width = '0px';
+        menuContainer.style.opacity = 0;
+      });
+    </script>
+  </body>
+</html>
