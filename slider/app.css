@@ -1,0 +1,42 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  width: 60vw;
+  height: 60vh;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  margin-top: 100px;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+}
+.slide img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.navigation {
+  text-align: center;
+}
+.prev,
+.next {
+  border: none;
+  background: none;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.prev:hover,
+.next:hover {
+  color: green;
+}
