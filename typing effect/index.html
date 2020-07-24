@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Effect</title>
+    <style>
+      .wrapper {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .container {
+        width: 50%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+      }
+      .container h1 {
+        font-size: 50px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="container">
+        <h1 data-target="Lorem ipsum dummy text blabla."></h1>
+      </div>
+    </section>
+
+    <script>
+      let typingElement = document.querySelector('.container h1');
+      let text = typingElement.getAttribute('data-target');
+      let i = 0;
+      function Typing() {
+        if (i < text.length) {
+          typingElement.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(Typing, 100);
+        }
+      }
+      Typing();
+    </script>
+  </body>
+</html>
