@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      .wrapper {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .container {
+        width: 50%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+      }
+      .container h1 {
+        font-size: 70px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="container">
+        <h1 data-target="900">0</h1>
+        <h1 data-target="800">0</h1>
+        <h1 data-target="482">0</h1>
+        <h1 data-target="294">0</h1>
+      </div>
+    </section>
+
+    <script>
+      let counterElements = document.querySelectorAll('.container h1');
+      function counter(elements, increment, speed) {
+        elements.forEach((node) => {
+          let count = +node.innerHTML;
+          let target = +node.getAttribute('data-target');
+          setInterval(() => {
+            if (count < target) {
+              count += increment;
+              node.innerHTML = count;
+            } else clearInterval();
+          }, speed);
+        });
+      }
+      counter(counterElements, 10, 50);
+    </script>
+  </body>
+</html>
